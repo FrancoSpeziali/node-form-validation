@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+
+    <style type="text/css">
+        form label, form input {
+            display: block;
+        }
+    </style>
+
+    <script defer type="application/javascript">
+        const registrationForm = document.getElementById('registrationForm');
+        document.addEventListener('submit', (event) => {
+            const formFields = {
+            }
+
+            fetch('http://localhost:3001/registerUser', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formFields)
+            })
+        })
+
+    </script>
+</head>
+<body>
+
+<form id="registrationForm">
+    <label>
+        Username
+        <input name="username" placeholder="Username" type="text"/>
+    </label>
+
+    <label>
+        Password
+        <input name="password" placeholder="Password" type="password"/>
+    </label>
+
+    <label>
+        First name
+        <input name="firstName" placeholder="First name" type="text"/>
+    </label>
+
+    <label>
+        Last name
+        <input name="lastName" placeholder="Last name" type="text"/>
+    </label>
+
+    <label>
+        Date of birth
+        <input name="date-of-birth" type="date"/>
+    </label>
+
+    <label>
+        E-mail
+        <input name="email" placeholder="E-mail" type="email"/>
+    </label>
+
+    <label>
+        Telephone number
+        <input name="telephone" placeholder="Telephone number" type="tel"/>
+    </label>
+
+    <label>
+        Gender
+        <select name="gender">
+            <option>Male</option>
+            <option>Female</option>
+            <option>N/A</option>
+        </select>
+    </label>
+
+    <button type="submit">Submit form</button>
+</form>
+
+</body>
+</html>
