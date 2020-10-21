@@ -281,9 +281,9 @@ To check if the validation fails, we must import another **named value**  from e
 
 3. Assign this to a variable called `result`
 
-```javascript
-const result = validationResult(req);
-```
+    ```javascript
+    const result = validationResult(req);
+    ```
 
 What is happening here?
 
