@@ -65,7 +65,7 @@ Research:
 
 3. Assign to this variable the `new FormData()` constructor, passing into the constructor the `target` property of the `event` object.
 
-4. Inside the `formFields` object, create the property `username`, and assign to this the username value from the form using the following code `formData.get('userName')` 
+4. Inside the `formFields` object, create the property `username`, and assign to this the username value from the form using the following code `formData.get('username')` 
 
 5. Do the same for the rest of the form fields.
 
@@ -279,15 +279,15 @@ To check if the validation fails, we must import another **named value**  from e
     validationResult(req);
     ```
 
-3. Assign this to a variable called `errors`
+3. Assign this to a variable called `result`
 
 ```javascript
-const errors = validationResult(req);
+const result = validationResult(req);
 ```
 
 What is happening here?
 
-We are looking for the errors reported by the validator. Our variable `errors` will be an array of values. If the array is empty, it means we had no errors.
+We are looking for the errors reported by the validator. `result.errors` will be an array of values. If the array is empty, it means we had no errors.
 
 4. With this information, if we have any errors here, return an error code of 400 to the user, passing in the errors.
 
@@ -295,4 +295,16 @@ We are looking for the errors reported by the validator. Our variable `errors` w
 
 If the server gives us an error, we should inform the user.
 
-Adapt the frontend part of this assignment to listen for a 400 error, and inform the user which fields did not meet the validation.
+At the end of each validation middleware, chain the function `.withMessage('Custom error message')`, providing your own custom error message.
+
+For example, if the validator for your password checks for a minimum length of 8 characters, you could say "Password should be a minimum of 8 characters"
+
+The following is an example of how you can "chain" this function at the end of your validator.
+
+```javascript
+body('password').isLength({ min: 8 }).withMessage('Password should be a minimum of 8 characters')
+```
+
+1. Using the above example, add custom error messages to your validators
+
+2. Adapt the frontend part of this assignment to listen for a 400 error, and return these errors back to the client (frontend). Inform the user which fields did not meet the validation, and show your custom error messages.
