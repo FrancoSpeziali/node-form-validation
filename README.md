@@ -236,8 +236,8 @@ Following the same examples from above:
 
 ```
 password
-firstname
-lastname
+firstName
+lastName
 email
 telephone
 ```
