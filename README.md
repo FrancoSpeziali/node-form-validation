@@ -285,9 +285,9 @@ To check if the validation fails, we must import another **named value**  from e
     const result = validationResult(req);
     ```
 
-What is happening here?
-
-We are looking for the errors reported by the validator. `result.errors` will be an array of values. If the array is empty, it means we had no errors.
+    What is happening here?
+    
+    We are looking for the errors reported by the validator. `result.errors` will be an array of values. If the array is empty, it means we had no errors.
 
 4. With this information, if we have any errors here, return an error code of 400 to the user, passing in the errors.
 
