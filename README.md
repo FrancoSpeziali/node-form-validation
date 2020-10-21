@@ -40,7 +40,7 @@ This project assumes you've already had experience with:
 
 ## Assignments
 
-For the backend part of this assignment, you are expected to write your code in the file `server-solution.js`
+For the backend part of this assignment, you are expected to write your code in the file `server.js`
 
 For the frontend part of this assignment, you can write your code in the file `index.html`. Here you must use vanilla JavaScript. If you wish you can use React, but you will need to set up your own project.
 
@@ -125,7 +125,19 @@ We need to use some middleware to make the `body` property accessible to us. Luc
 
 ## Assignment 6 - Connect your frontend to your backend
 
-- fetch
+1. Use `fetch` (or another library such as axios) to make a request to the backend server from the frontend.
+
+2. Use the URL `http://localhost:3001/registerUser`
+
+3. Make this a POST request
+
+4. Use the following values in the `headers`
+
+    ```text
+       'Content-Type': 'application/json'
+    ```
+   
+5. Send your data as part of the `BODY`
 
 ## Assignment 7 - Setting up our middleware - cors()
 
