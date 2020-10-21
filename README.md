@@ -210,11 +210,11 @@ We must add another value for the middleware. This will be in between the route 
     app.post('/registerUser', [], (reqest, response) => {
     ```
    
-## Assignment 10 - Add our first validator
+## Assignment 10 - Add our first sanitiser
 
-Let's create our first middleware. We want to check that the `username` property which comes from the `body` is alphanumeric (contains only letters and numbers).
+Let's create our first sanitiser middleware. We want to "trim" the `username` property which comes from the `body` to remove any whitespace characters that might surround it.
 
-1. Inside the middleware array `[]`, create a function call for `body('username').isAlphanumeric(),`
+1. Inside the middleware array `[]`, create a function call for `body('username').trim(),`
 
 ## Assignment 11 - Understanding the express-validator middleware
 
@@ -232,10 +232,9 @@ We will add sanitisers before running our validators. That way we can already pr
 
 Following the same examples from above:
 
-1. Add the `trim()` sanitiser on the following properties:
+1. Additionally add the `trim()` sanitiser on the following properties:
 
 ```
-username
 password
 firstname
 lastname
@@ -247,15 +246,17 @@ telephone
 
 2. Add the `normalizeEmail()` sanitiser on the `email` property
 
-## Assignment 13 - More validators
+## Assignment 13 - Adding validators
+
+Let's create our first validator middleware. We want to check that the `username` property which comes from the `body` is alphanumeric (contains only letters and numbers).
+
+1. Inside the middleware array `[]`, create a function call for `body('username').isAlphanumeric(),`
 
 Now we understand how express-validator middleware works, we can add some validation calls.
 
 We will add more function calls into this array to perform more validation.
 
-Following the example from the previous assignment:
-
-1. Add the `isAlphanumeric()` validator on the `username` property
+Following the example from the previous step:
 
 2. Add the `isLength({ min: 8 })` validator on the `password` property
 
