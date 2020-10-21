@@ -113,7 +113,7 @@ What is the result?
 
 ## Assignment 5 - Setting up our middleware - express.json()
 
-You may have noticed that when you tried testing your API, your `console.log()` command output an empty object `{}` even if you posted some valid JSON. Why is this?
+You may have noticed that when you tried testing your API, your `console.log()` command output a `undefined` even if you posted some valid JSON. Why is this?
 
 We need to use some middleware to make the `body` property accessible to us. Luckily for us, express.js comes with some built-in middleware to take care of this for us.
 
@@ -222,33 +222,13 @@ Let's take a moment to break apart the middleware we just used.
 
 1. We called the `body()` function
 
-2. We pass into this function the property we want to validate `username`
+2. We pass into this function the property we want to sanitise `username`
 
-3. We run a method onto this function call `isAlphanumeric()`
+3. We run a method onto this function called `trim()`
 
-## Assignment 12 - More validators
+## Assignment 12 - Add sanitisers
 
-Now we understand how express-validator middleware works, we can add more validation calls.
-
-We will add more function calls into this array to perform more validation.
-
-Following the example from the previous assignment:
-
-1. Add the `isLength({ min: 8 })` validator on the `password` property
-
-2. Add the `isAlpha()` validator on the `firstname` & `lastname` properties
-
-    > Hint: If you need to send multiple values into the function call (with express-validator), instead of passing in a single string `'hello'`, you can pass in an array of strings `['hello', 'goodbye']`
-
-3. Add the `isDate()` validator on the `dateOfBirth` property
-
-4. Add the `isEmail()` validator on the `email` property
-
-5. Add the `isNumeric()` validator on the `telephone` property
-
-6. Add the `isIn(['Male', 'Female', 'N/A'])` validator on the `gender` property
-
-## Assignment 13 - Add sanitisers
+We will add sanitisers before running our validators. That way we can already pre-prepare our data.
 
 Following the same examples from above:
 
@@ -266,6 +246,30 @@ telephone
 > Hint: If you need to send multiple values into the function call (with express-validator), instead of passing in a single string `'hello'`, you can pass in an array of strings `['hello', 'goodbye']`
 
 2. Add the `normalizeEmail()` sanitiser on the `email` property
+
+## Assignment 13 - More validators
+
+Now we understand how express-validator middleware works, we can add some validation calls.
+
+We will add more function calls into this array to perform more validation.
+
+Following the example from the previous assignment:
+
+1. Add the `isAlphanumeric()` validator on the `username` property
+
+2. Add the `isLength({ min: 8 })` validator on the `password` property
+
+3. Add the `isAlpha()` validator on the `firstname` & `lastname` properties
+
+    > Hint: If you need to send multiple values into the function call (with express-validator), instead of passing in a single string `'hello'`, you can pass in an array of strings `['hello', 'goodbye']`
+
+4. Add the `isDate()` validator on the `dateOfBirth` property
+
+5. Add the `isEmail()` validator on the `email` property
+
+6. Add the `isNumeric()` validator on the `telephone` property
+
+7. Add the `isIn(['Male', 'Female', 'N/A'])` validator on the `gender` property
 
 ## Assignment 14 - Return a 400 error, if the validation fails
 
